@@ -16,5 +16,5 @@ function. The input format is such that <br>
   the above is an example for a 3 dimensional data point.<br>
 ->The execution of the program in command prompt should be of the form<br>
   javac Main.java<br>
-  java Main <input file path><br>
+  java Main "input file path"<br>
 ->The argument can be directly assigned in the eclipse IDE
