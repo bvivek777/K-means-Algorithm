@@ -46,12 +46,12 @@ public class Kmeans {
 	
 	/* This function computes the Manhattan distance between the two points and 
 	 * returns the integer value, takes as argument two point objects */
-	private int distance(Point p1,Point p2){
+	private int distance(Point p1,Point p2,int distFactor){
 		int dist = 0;
 		for(int j = 0;j<p1.getDimensions().size();j++){
-				dist += Math.pow((p1.getDimensions().get(j)-p2.getDimensions().get(j)),2);
+				dist += Math.pow((p1.getDimensions().get(j)-p2.getDimensions().get(j)),distFactor);
 		}
-		return (int)Math.sqrt(dist);
+		return (int)Math.pow(dist,1/distFactor);
 	}
 	
 	private void mean(Cluster[] c){
@@ -92,7 +92,7 @@ public class Kmeans {
 		return false;
 	}
 	
-	public Cluster[] kmeanCompute(){
+	public Cluster[] kmeanCompute(int distFactor){
 		
 		Cluster[] cluster = new Cluster[numberOfCenters];
 		Cluster[] temp = new Cluster[numberOfCenters];
@@ -108,15 +108,15 @@ public class Kmeans {
 			for(int j=0;j<allPoints.getAllPoints().size();j++){
 				for(int i=0;i<centers.size();i++){
 					if(i==0){
-						min = distance(allPoints.getAllPoints().get(j),centers.get(i));
+						min = distance(allPoints.getAllPoints().get(j),centers.get(i),distFactor);
 						clusterNo = i;
 						pointNo = j;
 					}
 					
-					if(min >= distance(allPoints.getAllPoints().get(j),centers.get(i))){
+					if(min >= distance(allPoints.getAllPoints().get(j),centers.get(i),distFactor)){
 						clusterNo = i;
 						pointNo = j;
-						min = distance(allPoints.getAllPoints().get(j),centers.get(i));
+						min = distance(allPoints.getAllPoints().get(j),centers.get(i),distFactor);
 					}
 				}
 				Point p = allPoints.getAllPoints().get(pointNo);

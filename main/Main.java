@@ -7,7 +7,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		Kmeans kmean = new Kmeans();
 		kmean.getInput(args[0]);
-    	kmean.kmeanCompute();
+    	kmean.kmeanCompute(2);
 	}
 
 }
