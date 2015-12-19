@@ -46,12 +46,15 @@ public class Kmeans {
 	
 	/* This function computes the Manhattan distance between the two points and 
 	 * returns the integer value, takes as argument two point objects */
-	private int distance(Point p1,Point p2,int distFactor){
-		int dist = 0;
+	private long distance(Point p1,Point p2,int distFactor){
+		long dist = 0,temp =0;
 		for(int j = 0;j<p1.getDimensions().size();j++){
-				dist += Math.pow((p1.getDimensions().get(j)-p2.getDimensions().get(j)),distFactor);
+			temp = p1.getDimensions().get(j) - p2.getDimensions().get(j);
+			dist += Math.pow(temp,distFactor);
 		}
-		return (int)Math.pow(dist,1/distFactor);
+		if(dist<0)
+			dist = dist * -1;
+		return dist;
 	}
 	
 	private void mean(Cluster[] c){
@@ -96,7 +99,8 @@ public class Kmeans {
 		
 		Cluster[] cluster = new Cluster[numberOfCenters];
 		Cluster[] temp = new Cluster[numberOfCenters];
-		int clusterNo=0,pointNo=0,min =0;
+		int clusterNo=0,pointNo=0;
+		long min = 0;
 		cluster = initCluster(numberOfCenters);
 		int flag = 0;
 		boolean condition = true;
