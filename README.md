@@ -2,7 +2,7 @@
 java implemetation of the k means algorithm
 The K means algorithm is used to group the similar data points into clusters 
 which allow for efficient data mining tasks to be performed. But there are several 
-drawbacks to this algorithm.
+drawbacks to this algorithm.<br>
 This project allows the implemetation of the k means algorithm taking input from
 a text or data file. The file path has to be provided as arguement for the main 
 function. The input format is such that <br>
@@ -11,7 +11,8 @@ function. The input format is such that <br>
    have to be provided by the user. All th data points should hava the same number of
    dimensions.<br>
 ->The dimensions in the input file have to be given by providing space between, make sure that
-  there is no space left after the final dimension is entered<br>
+  there is no space left after the final dimension is entered. Make sure that each point is entered 
+  in a single line i.e. each point is sepeated by a newline<br>
   Eg: 23 12 45<br>
   the above is an example for a 3 dimensional data point.<br>
 ->The type of distance can also be selected Eg: Manhattan,Euclidean,etc in general the Minkowsky
